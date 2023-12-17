@@ -105,8 +105,8 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
  */
 function removeLeadingWhitespaces(value) {
-  const resultRemoveTrailing = value.trimStart();
-  return resultRemoveTrailing;
+  const resultRemoveStartTrailing = value.trimStart();
+  return resultRemoveStartTrailing;
 }
 
 /**
@@ -120,8 +120,9 @@ function removeLeadingWhitespaces(value) {
  *   removeTrailingWhitespaces('cat ') => 'cat'
  *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
  */
-function removeTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeTrailingWhitespaces(value) {
+  const resultRemoveEndTrailing = value.trimEnd();
+  return resultRemoveEndTrailing;
 }
 
 /**
