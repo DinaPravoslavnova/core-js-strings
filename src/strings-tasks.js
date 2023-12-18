@@ -240,8 +240,9 @@ function startsWith(str, substr) {
  *   endsWith('Hello World', 'World') => true
  *   endsWith('Hello World', 'Hello') => false
  */
-function endsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function endsWith(str, substr) {
+  const resultEndsWith = str.endsWith(substr);
+  return resultEndsWith;
 }
 
 /**
