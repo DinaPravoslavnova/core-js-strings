@@ -508,8 +508,30 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  let stringEncode = '';
+
+  for (let i = 0; i < str.length; i += 1) {
+    const letterCharCode = str.charCodeAt(i);
+    const isUppercaseLetter = letterCharCode > 64 && letterCharCode < 91;
+    const isLowercaseLetter = letterCharCode > 96 && letterCharCode < 123;
+
+    if (!(isUppercaseLetter || isLowercaseLetter)) {
+      stringEncode += str[i];
+    } else if (isUppercaseLetter) {
+      if (letterCharCode + 13 < 91) {
+        stringEncode += String.fromCharCode(letterCharCode + 13);
+      } else {
+        stringEncode += String.fromCharCode(65 + (letterCharCode + 13 - 91));
+      }
+    } else if (letterCharCode + 13 < 123) {
+      stringEncode += String.fromCharCode(letterCharCode + 13);
+    } else {
+      stringEncode += String.fromCharCode(97 + (letterCharCode + 13 - 123));
+    }
+  }
+
+  return stringEncode;
 }
 
 /**
