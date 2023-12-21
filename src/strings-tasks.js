@@ -558,8 +558,38 @@ function encodeToRot13(str) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  let number = value.slice(0, -1);
+
+  if (number === 'A') {
+    number = 1;
+  } else if (number === 'J') {
+    number = 11;
+  } else if (number === 'Q') {
+    number = 12;
+  } else if (number === 'K') {
+    number = 13;
+  } else {
+    number = Number(number);
+  }
+
+  let suit = value.slice(-1);
+
+  if (suit === '♣') {
+    suit = 0;
+  }
+  if (suit === '♦') {
+    suit = 1;
+  }
+  if (suit === '♥') {
+    suit = 2;
+  }
+  if (suit === '♠') {
+    suit = 3;
+  }
+
+  const cardId = number + suit * 13 - 1;
+  return cardId;
 }
 
 module.exports = {
